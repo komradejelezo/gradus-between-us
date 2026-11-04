@@ -4,7 +4,7 @@ test("mobile production game: secrets, dice, restore, finale and deletion", asyn
 }) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await page.goto("/");
+  await page.goto("./");
   await expect(
     page.getByText("Сегодня всё только для вас двоих"),
   ).toBeVisible();
@@ -114,7 +114,7 @@ test("mobile production game: secrets, dice, restore, finale and deletion", asyn
 });
 test("desktop rules and disabled touch survive reload", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page.goto("/");
+  await page.goto("./");
   await page.getByRole("button", { name: "Как провести этот вечер" }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.getByRole("button", { name: "Закрыть", exact: true }).click();
